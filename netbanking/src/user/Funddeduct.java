@@ -52,6 +52,9 @@ public class Funddeduct extends HttpServlet {
 					request.setAttribute("message", "fund transfered successfully");
 					request.getRequestDispatcher("U_fundtransfer.jsp").forward(request, response);
 					                                                       
+				}else{
+					request.setAttribute("message", "No Sufficient Funds!please deposit in local bank branch");
+					request.getRequestDispatcher("U_fundtransfer.jsp").forward(request, response);
 				}
 			}
 			
