@@ -9,6 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
+<table><tr>
+<td><a href="U_profile.jsp">Profile</a></td>
+<td><a href="U_Loanregister.jsp">Loan-Request</a></td>
+<td><a href="U_inbox.jsp">Inbox</a></td>
+<td><a href="U_trfunds.jsp">Transfer Funds</a></td>
+</tr></table>
+</div>
 <%
 String acc,name,pwd,gen,email,mob,addr,adhar;
 String acno=(String)request.getSession().getAttribute("acc");

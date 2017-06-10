@@ -26,7 +26,7 @@ public class aReg extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	try{
-		String acc="ha201789697";
+		String acc=(String)request.getSession(true).getAttribute("acc");
 		String name="";
 	ResultSet rs=AllretriveMethods.getuservalues(acc);
 	if(rs.next())
@@ -64,7 +64,7 @@ public class aReg extends HttpServlet {
 		if(i==1)
 		{
 			
-			request.getRequestDispatcher("A_login.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}catch(Exception e){System.out.println("error is "+e);}
 		

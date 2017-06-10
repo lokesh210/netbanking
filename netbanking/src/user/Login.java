@@ -41,8 +41,8 @@ public class Login extends HttpServlet {
 			if(rs.next())
 			{
 				request.getSession().setAttribute("acc",name);
-				//response.sendRedirect("Acc_Details.jsp");
-				response.sendRedirect("U_profile.jsp");
+				response.sendRedirect("U_home.jsp");
+				
 				
 			}else{
 				String message="Invalid Credentials! please try again";

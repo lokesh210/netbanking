@@ -20,7 +20,9 @@
 </tr>
 </table>
 </form>
-
+<table>
+<tr><td>For New Registration <a href="U_register.jsp">click here</a></td></tr>
+</table>
 
 ${message}
 </body>
