@@ -7,21 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="user" action="Login?type=user" method="post">
-<table>
-<tr>
-<td>AccountNo</td><td><input type="text" name="uname"></td>
-</tr>
-<tr>
-<td>PassWord</td><td><input type="password" name="upwd"></td>
-</tr>
-<tr>
-<td colspan="2" align="center"><input type="submit" name="LOGIN"></td>
-</tr>
-</table>
-</form>
 
-
-${message}
 </body>
 </html>

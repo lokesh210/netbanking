@@ -40,7 +40,14 @@ public class Login extends HttpServlet {
 			ResultSet rs=ps.executeQuery();
 			if(rs.next())
 			{
-				response.sendRedirect("a.html");
+				request.getSession().setAttribute("acc",name);
+				//response.sendRedirect("Acc_Details.jsp");
+				response.sendRedirect("U_profile.jsp");
+				
+			}else{
+				String message="Invalid Credentials! please try again";
+				request.setAttribute("message", message);
+				request.getRequestDispatcher("U_login.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -56,16 +63,21 @@ public class Login extends HttpServlet {
 		ResultSet rs=ps.executeQuery();
 		if(rs.next())
 		{
-			response.sendRedirect("a.html");
+			response.sendRedirect("Admin_home.jsp");
+		}else{
+			String message="Invalid Credentials! please try again";
+			request.setAttribute("message", message);
+			request.getRequestDispatcher("A_login.jsp").forward(request, response);
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	}
-		
+	
 	}
-}
+	}
+
 
 		
 		

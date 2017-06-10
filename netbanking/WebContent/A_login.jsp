@@ -19,8 +19,8 @@
 <td colspan="2" align="center"><input type="submit" name="LOGIN"></td>
 </tr>
 </table>
-
-
 </form>
+
+${message}
 </body>
 </html>

@@ -35,6 +35,7 @@ public class aReg extends HttpServlet {
 	}else{
 		System.out.println("error");
 	}
+	
 		String job=request.getParameter("jname");
 	    String eid=request.getParameter("jiname");
 	    String sal=request.getParameter("sal");
