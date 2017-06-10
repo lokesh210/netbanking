@@ -1,0 +1,116 @@
+# HeidiSQL Dump 
+#
+# --------------------------------------------------------
+# Host:                 127.0.0.1
+# Database:             net
+# Server version:       5.0.45-community-nt
+# Server OS:            Win32
+# Target-Compatibility: Standard ANSI SQL
+# HeidiSQL version:     3.1 RC1 Revision: 1064
+# --------------------------------------------------------
+
+/*!40100 SET CHARACTER SET latin1;*/
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ANSI';*/
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;*/
+
+
+#
+# Database structure for database 'net'
+#
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ "net" /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE "net";
+
+
+#
+# Table structure for table 'loandetails'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "loandetails" (
+  "account" varchar(50) NOT NULL,
+  "name" varchar(50) default NULL,
+  "job" varchar(50) NOT NULL,
+  "jobid" varchar(50) default NULL,
+  "salary" varchar(50) NOT NULL,
+  "organization" varchar(50) NOT NULL,
+  "address" varchar(50) NOT NULL,
+  "doj" varchar(50) NOT NULL,
+  "amount" float unsigned default NULL,
+  "status" varchar(50) default NULL
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Table structure for table 'loanres'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "loanres" (
+  "Accno" varchar(50) default NULL,
+  "name" varchar(50) default NULL,
+  "issuedate" varchar(50) default NULL,
+  "interest" float unsigned default NULL,
+  "amount" float unsigned default NULL,
+  "Status" varchar(250) default NULL
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Table structure for table 'saveacc'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "saveacc" (
+  "account1" varchar(50) default NULL,
+  "holder1" varchar(50) default NULL,
+  "account2" varchar(50) default NULL,
+  "holder2" varchar(50) default NULL
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Table structure for table 'server'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "server" (
+  "username" varchar(50) NOT NULL,
+  "password" varchar(50) NOT NULL
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Table structure for table 'transactions'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "transactions" (
+  "Accno" varchar(50) default NULL,
+  "Actions" varchar(250) default NULL,
+  "Time" datetime default NULL
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+
+
+#
+# Table structure for table 'userinfo'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "userinfo" (
+  "Accno" varchar(50) NOT NULL,
+  "name" varchar(50) NOT NULL,
+  "Balance" float unsigned default '0',
+  "password" varchar(50) NOT NULL,
+  "gender" varchar(50) default NULL,
+  "email" varchar(50) NOT NULL,
+  "mobile" bigint(20) unsigned NOT NULL,
+  "address" varchar(250) default NULL,
+  "adharno" bigint(20) unsigned NOT NULL,
+  "jd" varchar(50) NOT NULL,
+  "Image" longblob,
+  PRIMARY KEY  ("Accno")
+) /*!40100 DEFAULT CHARSET=latin1*/;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE;*/
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;*/
