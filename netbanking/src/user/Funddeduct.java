@@ -58,6 +58,8 @@ public class Funddeduct extends HttpServlet {
 				}
 			}
 			
+		}catch(Exception e){
+			System.err.println("error is "+e);
 		}
 	}
 

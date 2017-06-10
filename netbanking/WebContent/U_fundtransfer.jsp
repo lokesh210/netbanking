@@ -24,6 +24,9 @@
 <tr>
 </table>
 </form>
+<table>
+<tr><td>For Adding Account <a href="U_addacc.jsp">click-here</a></td></tr>
+</table>
 </div>
 ${message}
 </body>

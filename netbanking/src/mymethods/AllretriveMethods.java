@@ -173,6 +173,46 @@ public class AllretriveMethods {
 		return rs;
 	}
 	
+	public static ResultSet getsavedacs(String acno){
+		sql="select *  from saveacc where account1='"+acno+"'";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getmyhis(String acno){
+		sql="select *  from transactions where Accno='"+acno+"'";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getallhis(){
+		sql="select *  from transactions";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	
 	
 }
 
