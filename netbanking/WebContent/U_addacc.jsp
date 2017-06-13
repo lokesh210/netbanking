@@ -21,7 +21,7 @@ function GetName(id){
 	var status=xmlhttp.responseText
 	if(status.CharAt(0)=="I")
 		{
-		alert(status);
+		alert(xmlhttp.responseText);
 		}
 			
 	

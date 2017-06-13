@@ -30,6 +30,7 @@ public class Funddeduct extends HttpServlet {
 			Float amt=Float.parseFloat(request.getParameter("amt"));
 			String msg=request.getParameter("message");
 			rs=AllretriveMethods.getuservalues(acc1);
+			if(rs.next())
 			{
 				amt1=rs.getFloat(3);
 				if(amt1>=amt){
@@ -38,13 +39,13 @@ public class Funddeduct extends HttpServlet {
 						amt2=rs.getFloat(3);
 					}
 					Float x=amt2+amt;
-					String sql="update userinfo set amount=? where Accno=?";
+					String sql="update userinfo set balance=? where Accno=?";
 					st=con.prepareStatement(sql);
 					st.setFloat(1, x);
 					st.setString(2, acc2);
 					int i=st.executeUpdate();
 					Float y=amt1-amt;
-					String sql1="update userinfo set amount=? where Accno=?";
+					String sql1="update userinfo set balance=? where Accno=?";
 					st=con.prepareStatement(sql1);
 					st.setFloat(1, y);
 					st.setString(2, acc1);

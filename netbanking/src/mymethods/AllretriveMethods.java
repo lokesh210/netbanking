@@ -50,8 +50,8 @@ public class AllretriveMethods {
 		return rs;
 	}
 
-	public static ResultSet getusername(){
-		sql="select  name from userinfo ";
+	public static ResultSet getusername(String name){
+		sql="select  * from userinfo where name='"+name+"' ";
 		try {
 			st=con.createStatement();
 			rs=st.executeQuery(sql);

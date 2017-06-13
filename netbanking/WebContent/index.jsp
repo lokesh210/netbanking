@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="U_login.jsp"></jsp:include>
+<div>
+<table><tr>
+<td><a href="U_login.jsp">User</a></td>
+<td><a href="A_login.jsp">Staff</a></td></tr></table>
+</div>
+
 </body>
 </html>

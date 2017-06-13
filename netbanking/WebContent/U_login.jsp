@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
+<table><tr>
+<td><a href="U_login.jsp">User</a></td>
+<td><a href="A_login.jsp">Staff</a></td></tr></table>
+</div>
+<div>
 <form name="user" action="Login?type=user" method="post">
 <table>
 <tr>
@@ -23,7 +29,7 @@
 <table>
 <tr><td>For New Registration <a href="U_register.jsp">click here</a></td></tr>
 </table>
-
+</div>
 ${message}
 </body>
 </html>

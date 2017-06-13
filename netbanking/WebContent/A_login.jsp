@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
+<table><tr>
+<td><a href="U_login.jsp">User</a></td>
+<td><a href="A_login.jsp">Staff</a></td></tr></table>
+</div>
+<div>
 <form name="admin" action="Login?type=admin" method="post">
 <table>
 <tr>
@@ -20,7 +26,7 @@
 </tr>
 </table>
 </form>
-
+</div>
 ${message}
 </body>
 </html>
