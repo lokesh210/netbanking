@@ -10,6 +10,13 @@
 </head>
 <body>
 <div>
+<table><tr>
+<td><a href="Admin_home.jsp">Home</a></td>
+<td><a href="A_viewusers.jsp">View-Customers</a></td>
+<td><a href="A_viewLoan.jsp">Loan-Section</a></td>
+<td><a href="A_history.jsp">History</a></td>
+</tr></table></div>
+<div>
 <table>
 <tr><th>AccountNo</th><th>Name</th><th>Job Role</th><th>Salary</th><th>Loan</th><th>Status</th></tr>
 
@@ -23,5 +30,7 @@ while(rs.next())
 %>
 </table>
 </div>
+<div>
+${message}</div>
 </body>
 </html>

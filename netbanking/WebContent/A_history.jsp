@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-<table><tr>
-<td><a href="Admin_home.jsp">Home</a></td>
-<td><a href="A_viewusers.jsp">View-Customers</a></td>
-<td><a href="A_viewLoan.jsp">Loan-Section</a></td>
-<td><a href="A_history.jsp">History</a></td>
-</tr></table></div>
+
 </body>
 </html>

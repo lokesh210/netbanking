@@ -9,10 +9,13 @@
 <body>
 <div>
 <table><tr>
-<td><a href="Admin_home.jsp">Home</a></td>
-<td><a href="A_viewusers.jsp">View-Customers</a></td>
-<td><a href="A_viewLoan.jsp">Loan-Section</a></td>
-<td><a href="A_history.jsp">History</a></td>
-</tr></table></div>
+<td><a href="U_home.jsp">Home</a></td>
+<td><a href="U_profile.jsp">Profile</a></td>
+<td><a href="U_Loanregister.jsp">Loan-Request</a></td>
+<td><a href="U_inbox.jsp">Inbox</a></td>
+<td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
+<td><a href="U_history.jsp">History</a></td>
+</tr></table>
+</div>
 </body>
 </html>

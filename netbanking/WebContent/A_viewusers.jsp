@@ -10,6 +10,13 @@
 </head>
 <body>
 <div>
+<table><tr>
+<td><a href="Admin_home.jsp">Home</a></td>
+<td><a href="A_viewusers.jsp">View-Customers</a></td>
+<td><a href="A_viewLoan.jsp">Loan-Section</a></td>
+<td><a href="A_history.jsp">History</a></td>
+</tr></table></div>
+<div>
 <table>
 <tr><th>AccountNo</th><th>Name</th><th>Gender</th><th>Email</th><th>Phone</th><th>Address</th><th>AdharNo</th></tr>
 
@@ -17,8 +24,8 @@
 ResultSet rs=AllretriveMethods.getAllvalues();
 while(rs.next())
 {%>
-<tr><td><%=rs.getString(1) %></td><td><%=rs.getString(2) %></td><td><%=rs.getString(4) %></td><td><%=rs.getString(5) %></td>
-<td><%=rs.getString(6) %></td><td><%=rs.getString(7) %></td><td><%=rs.getString(8) %></td></tr>	
+<tr><td><%=rs.getString(1) %></td><td><%=rs.getString(2) %></td><td><%=rs.getString(5) %></td><td><%=rs.getString(6) %></td>
+<td><%=rs.getString(7) %></td><td><%=rs.getString(8) %></td><td><%=rs.getString(9) %></td></tr>	
 <%}
 %>
 </table>

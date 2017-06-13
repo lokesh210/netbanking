@@ -11,10 +11,12 @@
 <body>
 <div>
 <table><tr>
+<td><a href="U_home.jsp">Home</a></td>
 <td><a href="U_profile.jsp">Profile</a></td>
 <td><a href="U_Loanregister.jsp">Loan-Request</a></td>
 <td><a href="U_inbox.jsp">Inbox</a></td>
-<td><a href="U_trfunds.jsp">Transfer Funds</a></td>
+<td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
+<td><a href="U_history.jsp">History</a></td>
 </tr></table>
 </div>
 <%
@@ -25,12 +27,12 @@ if(rs.next())
 {
  acc=rs.getString(1);
  name=rs.getString(2);
- pwd=rs.getString(3);
- gen=rs.getString(4);
- email=rs.getString(5);
- mob=rs.getString(6);
- addr=rs.getString(7);
- adhar=rs.getString(8);
+ pwd=rs.getString(4);
+ gen=rs.getString(5);
+ email=rs.getString(6);
+ mob=rs.getString(7);
+ addr=rs.getString(8);
+ adhar=rs.getString(9);
 
 %>
 <form name="user" action="URegUpdate" method="post" >

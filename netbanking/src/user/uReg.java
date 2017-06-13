@@ -2,6 +2,7 @@ package user;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.security.SecureRandom;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -47,6 +48,7 @@ public class uReg extends HttpServlet {
 		String phone=request.getParameter("mob");
 		String addr=request.getParameter("addr");
 		String adhar=request.getParameter("adrno");
+		Float balance=0f;
 		int i1=name.length();
 		String b=String.valueOf(name.charAt(0));
 		String c=String.valueOf(name.charAt(i1-1));
@@ -67,26 +69,32 @@ public class uReg extends HttpServlet {
 			
 		}
 		String acc=b+c+yea+k;
-		String sql="insert into userinfo values(?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into userinfo values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps=con.prepareStatement(sql);
 		ps.setString(1,acc);
 		ps.setString(2,name);
-		ps.setString(3,pwd);
-		ps.setString(4,gender);
-		ps.setString(5,email);
-		ps.setString(6,phone);
-		ps.setString(7,addr);
-		ps.setString(8,adhar);
-		ps.setString(9, ent);
-		ps.setBlob(10, is);
+		ps.setFloat(3,balance);
+		ps.setString(4,pwd);
+		ps.setString(5,gender);
+		ps.setString(6,email);
+		ps.setString(7,phone);
+		ps.setString(8,addr);
+		ps.setString(9,adhar);
+		ps.setString(10, ent);
+		ps.setBlob(11, is);
 		int i=ps.executeUpdate();
 		if(i==1)
 		{
 			String message="register success";
 			request.setAttribute("message", message);
-			request.getRequestDispatcher("U_login.jsp").forward(request, response);
+			response.setContentType("text/html");
+			PrintWriter out=response.getWriter();
+			out.println("<script>alert('your generated account  :  "+acc+"')</script>");
+			request.getRequestDispatcher("U_login.jsp").include(request, response);
 		}
-	}catch(Exception e){}
+	}catch(Exception e){
+		System.err.println("error is "+e);
+	}
 		
 	}
 

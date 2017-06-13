@@ -12,6 +12,7 @@
 <div>
 <div>
 <table><tr>
+<td><a href="U_home.jsp">Home</a></td>
 <td><a href="U_profile.jsp">Profile</a></td>
 <td><a href="U_Loanregister.jsp">Loan-Request</a></td>
 <td><a href="U_inbox.jsp">Inbox</a></td>
@@ -41,9 +42,9 @@ if(rs.next())
 
 
 %>
-<th>Account Number</th><td><%=acno %></td>
-<th>Holder Name</th><td><%=name %></td>
-<th>Balance</th><td><%=bal %></td>
+<th align="left">Account Number</th><td><%=acno %></td></tr>
+<tr><th align="left">Holder Name</th><td><%=name %></td></tr>
+<tr><th align="left">Balance</th><td><%=bal %></td>
 </tr>
 </table>
 <%} %>

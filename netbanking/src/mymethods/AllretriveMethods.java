@@ -147,7 +147,8 @@ public class AllretriveMethods {
 	
 }
 	public static ResultSet getallloansreq(){
-		sql="select * from loandetails";
+		String status="pending";
+		sql="select * from loandetails where status='"+status+"'";
 		try {
 			st=con.createStatement();
 			rs=st.executeQuery(sql);
@@ -213,6 +214,33 @@ public class AllretriveMethods {
 		return rs;
 	}
 	
+	public static ResultSet getusermsg(String acno){
+		sql="select * from inbox where Accno='"+acno+"'";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	
+	public static ResultSet getfrndac(String acno){
+		sql="select * from saveacc where account1='"+acno+"'";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
 	
 }
 
