@@ -242,6 +242,25 @@ public class AllretriveMethods {
 		return rs;
 	}
 	
-}
+	public static void storehis(String acno,String action){
+		try {
+		ResultSet rs1=todate();		
+		String td = null;
+		if(rs1.next()){
+			td=rs1.getString(1);
+		}
+		
+		sql="insert into transactions values('"+acno+"','"+action+"','"+td+"')";
+		
+			st=con.createStatement();
+			st.executeUpdate(sql);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	
+	}}
 
 

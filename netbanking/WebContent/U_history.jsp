@@ -1,3 +1,5 @@
+<%@page import="mymethods.AllretriveMethods"%>
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,7 +17,27 @@
 <td><a href="U_inbox.jsp">Inbox</a></td>
 <td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
 <td><a href="U_history.jsp">History</a></td>
+<td><a href="Logout.jsp">Logout</a></td>
 </tr></table>
+</div>
+<div>
+<table>
+<tr><th>Date</th><th>Message</th></tr>
+<%
+String acc=(String)request.getSession().getAttribute("acc");
+ResultSet rs=AllretriveMethods.getmyhis(acc);
+
+
+while(rs.next())
+{
+%>
+<tr><td><%=rs.getString(3)%></td><td><%=rs.getString(2)%></td></tr>
+<%}
+String action="checking theie inbox for new messages"; 
+AllretriveMethods.storehis(acc, action);
+%>
+
+</table>
 </div>
 </body>
 </html>

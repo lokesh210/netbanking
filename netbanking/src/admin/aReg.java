@@ -63,7 +63,8 @@ public class aReg extends HttpServlet {
 		int i=ps.executeUpdate();
 		if(i==1)
 		{
-			
+			String action="applying loan succesfully"; 
+			 AllretriveMethods.storehis(acc, action);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}catch(Exception e){System.out.println("error is "+e);}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dbcon.DbConnection;
+import mymethods.AllretriveMethods;
 
 /**
  * Servlet implementation class URegUpdate
@@ -36,6 +37,8 @@ public class URegUpdate extends HttpServlet {
 			if(i==1)
 			{
 				request.getSession().setAttribute("acc",acc);
+				String action="perform  profile updations"; 
+				 AllretriveMethods.storehis(acc, action);
 				String message="Update success";
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("U_profile.jsp").forward(request, response);

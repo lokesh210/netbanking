@@ -21,7 +21,8 @@ public class Funddeduct extends HttpServlet {
 	String msg,acc1,acc2;
 	Float amt,amt1,amt2;
 	ResultSet rs=null;
-	PreparedStatement st;
+	PreparedStatement st,ps;
+	String td,name;
 	Connection con=DbConnection.getConnection();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
@@ -32,6 +33,7 @@ public class Funddeduct extends HttpServlet {
 			rs=AllretriveMethods.getuservalues(acc1);
 			if(rs.next())
 			{
+				name=rs.getString(2);
 				amt1=rs.getFloat(3);
 				if(amt1>=amt){
 					rs=AllretriveMethods.getuservalues(acc2);
@@ -49,9 +51,24 @@ public class Funddeduct extends HttpServlet {
 					st=con.prepareStatement(sql1);
 					st.setFloat(1, y);
 					st.setString(2, acc1);
-					int j=st.executeUpdate();				
+					int j=st.executeUpdate();	
+					rs=AllretriveMethods.todate();
+					if(rs.next())
+					{
+						td=rs.getString(1);
+					}
+					String msg1=msg+" from "+name+"("+acc1+")";
+					ps=con.prepareStatement("insert into inbox values(?,?,?)");
+					ps.setString(1, acc2);
+					ps.setString(2,msg1);
+					ps.setString(3,td);
+					ps.executeUpdate();
+					
+					String action=amt+" rupees transffered to "+acc2; 
+					 AllretriveMethods.storehis(acc1, action);
 					request.setAttribute("message", "fund transfered successfully");
 					request.getRequestDispatcher("U_fundtransfer.jsp").forward(request, response);
+					
 					                                                       
 				}else{
 					request.setAttribute("message", "No Sufficient Funds!please deposit in local bank branch");

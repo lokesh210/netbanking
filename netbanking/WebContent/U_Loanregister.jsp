@@ -15,6 +15,7 @@
 <td><a href="U_inbox.jsp">Inbox</a></td>
 <td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
 <td><a href="U_history.jsp">History</a></td>
+<td><a href="Logout.jsp">Logout</a></td>
 </tr></table>
 </div>
 <form name="admin" action="aReg" method="post">

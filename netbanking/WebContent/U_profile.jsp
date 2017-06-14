@@ -17,6 +17,7 @@
 <td><a href="U_inbox.jsp">Inbox</a></td>
 <td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
 <td><a href="U_history.jsp">History</a></td>
+<td><a href="Logout.jsp">Logout</a></td>
 </tr></table>
 </div>
 <%
@@ -33,7 +34,8 @@ if(rs.next())
  mob=rs.getString(7);
  addr=rs.getString(8);
  adhar=rs.getString(9);
-
+ 
+ 
 %>
 <form name="user" action="URegUpdate" method="post" >
 <table>

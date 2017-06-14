@@ -41,6 +41,8 @@ public class AddFrnd extends HttpServlet {
 		ps.setString(4, name1);
 		int i=ps.executeUpdate();
 		if(i==1){
+			String action="Adding friend account to addresslist"; 
+			 AllretriveMethods.storehis(acc, action);
 			request.setAttribute("message", "account saved successfully");
 			request.getRequestDispatcher("U_fundtransfer.jsp").forward(request, response);
 		}

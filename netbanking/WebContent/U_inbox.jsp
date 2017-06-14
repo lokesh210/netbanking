@@ -17,6 +17,7 @@
 <td><a href="U_inbox.jsp">Inbox</a></td>
 <td><a href="U_fundtransfer.jsp">Transfer Funds</a></td>
 <td><a href="U_history.jsp">History</a></td>
+<td><a href="Logout.jsp">Logout</a></td>
 </tr></table>
 </div>
 <div>
@@ -25,11 +26,16 @@
 <%
 String acc=(String)request.getSession().getAttribute("acc");
 ResultSet rs=AllretriveMethods.getusermsg(acc);
+
+
 while(rs.next())
 {
 %>
 <tr><td><%=rs.getString(3)%></td><td><%=rs.getString(2)%></td><td><a href="Msgdel.jsp?acc=<%=rs.getString(1)%>">Delete</a></td></tr>
-<%}%>
+<%}
+String action="checking their inbox for new messages"; 
+AllretriveMethods.storehis(acc, action);
+%>
 
 </table>
 </div>

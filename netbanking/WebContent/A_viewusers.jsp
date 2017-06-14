@@ -15,6 +15,7 @@
 <td><a href="A_viewusers.jsp">View-Customers</a></td>
 <td><a href="A_viewLoan.jsp">Loan-Section</a></td>
 <td><a href="A_history.jsp">History</a></td>
+<td><a href="Logout.jsp">Logout</a></td>
 </tr></table></div>
 <div>
 <table>
