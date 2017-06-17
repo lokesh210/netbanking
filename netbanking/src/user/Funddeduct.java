@@ -58,7 +58,7 @@ public class Funddeduct extends HttpServlet {
 						td=rs.getString(1);
 					}
 					String msg1=msg+" from "+name+"("+acc1+")";
-					ps=con.prepareStatement("insert into inbox values(?,?,?)");
+					ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 					ps.setString(1, acc2);
 					ps.setString(2,msg1);
 					ps.setString(3,td);

@@ -23,8 +23,21 @@ public class AllretriveMethods {
 		
 		return rs;
 	}
-	public static ResultSet getAllvalues(){
-		sql="select * from userinfo";
+	public static ResultSet getAllvalues(int pageid,int total){
+		sql="select * from userinfo limit "+pageid+","+total;
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getallusercount(){
+		sql="select count(*) from userinfo";
 		try {
 			st=con.createStatement();
 			rs=st.executeQuery(sql);
@@ -78,74 +91,7 @@ public class AllretriveMethods {
 	}
 	
 	
-	public static ResultSet getuseremail(){
-		sql="select email from userinfo ";
-		try {
-			st=con.createStatement();
-			rs=st.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return rs;
-	}
-	public static ResultSet getusermobile(){
-		sql="select mobile from userinfo ";
-		try {
-			st=con.createStatement();
-			rs=st.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return rs;
-	}
 	
-	public static ResultSet getuseraddress(){
-		sql="select address from userinfo ";
-		try {
-			st=con.createStatement();
-			rs=st.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return rs;
-	}
-	public static ResultSet getuseradharno(){
-		sql="select adharno from userinfo ";
-		try {
-			st=con.createStatement();
-			rs=st.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return rs;
-	}
-	
-	public static ResultSet getuserimage(String acno){
-		sql="select image from userinfo where Accno='"+acno+"'";
-		try {
-			st=con.createStatement();
-			rs=st.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return rs;
-	
-}
 	public static ResultSet getallloansreq(){
 		String status="pending";
 		sql="select * from loandetails where status='"+status+"'";
@@ -187,8 +133,8 @@ public class AllretriveMethods {
 		
 		return rs;
 	}
-	public static ResultSet getmyhis(String acno){
-		sql="select *  from transactions where Accno='"+acno+"'";
+	public static ResultSet getmyhis(String acno,int pageid,int total){
+		sql="select *  from transactions  where Accno='"+acno+"' limit "+pageid+","+total;
 		try {
 			st=con.createStatement();
 			rs=st.executeQuery(sql);
@@ -200,9 +146,60 @@ public class AllretriveMethods {
 		
 		return rs;
 	}
-	public static ResultSet getallhis(){
-		sql="select *  from transactions";
+	public static ResultSet getmyhiscount(String acno){
+		sql="select count(*) from transactions where Accno='"+acno+"'";
 		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getallhis(int pageid,int total){
+		sql="select *  from transactions limit "+pageid+","+total;
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getallhiscount(){
+		sql="select count(*)  from transactions";
+		try {
+			st=con.createStatement();
+			rs=st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;
+	}
+	public static ResultSet getusermsg(String acno,int pageid,int total){
+		
+		
+		try {
+			ResultSet rs1=getusermsgcount(acno);
+			if(rs1.next())
+			{
+				int i=rs.getInt(1);
+				if(i<2)
+				{
+					sql="select * from inbox where Accno='"+acno+"' limit 0,"+total ;
+				}else{
+					sql="select * from inbox where Accno='"+acno+"' limit "+pageid+","+total ;
+				}
+			}
 			st=con.createStatement();
 			rs=st.executeQuery(sql);
 		} catch (SQLException e) {
@@ -214,8 +211,8 @@ public class AllretriveMethods {
 		return rs;
 	}
 	
-	public static ResultSet getusermsg(String acno){
-		sql="select * from inbox where Accno='"+acno+"'";
+	public static ResultSet getusermsgcount(String acno){
+		sql="select count(*) from inbox where Accno='"+acno+"'";
 		try {
 			st=con.createStatement();
 			rs=st.executeQuery(sql);
@@ -258,9 +255,23 @@ public class AllretriveMethods {
 			
 			e.printStackTrace();
 		}
+	}
 		
 		
+		public static ResultSet getmymsgcount(String acno){
+			sql="select count(*) from inbox where Accno='"+acno+"'";
+			try {
+				st=con.createStatement();
+				rs=st.executeQuery(sql);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return rs;
+		}
 	
-	}}
+	}
 
 

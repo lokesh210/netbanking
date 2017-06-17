@@ -65,7 +65,8 @@ public class aReg extends HttpServlet {
 		{
 			String action="applying loan succesfully"; 
 			 AllretriveMethods.storehis(acc, action);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			 request.setAttribute("message", action);
+			request.getRequestDispatcher("U_Loanregister.jsp").forward(request, response);
 		}
 	}catch(Exception e){System.out.println("error is "+e);}
 		

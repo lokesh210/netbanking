@@ -42,6 +42,7 @@ if(rs.next())
 	name=rs.getString(2);
 	salary=rs.getString(5);
 	doj=rs.getString(8);
+	System.out.println(doj);
 	amount=rs.getFloat(9);
 }
 ResultSet rs1=AllretriveMethods.todate();
@@ -62,6 +63,7 @@ int y=Integer.parseInt(doj2[2]);
 int d1=Integer.parseInt(td2[0]);
 int m1=Integer.parseInt(td2[1]);
 int y1=Integer.parseInt(td2[2]);
+System.out.println(y1+" and "+y);
 if(doj1.before(td1))
 {
 	if(y==y1){
@@ -75,14 +77,14 @@ if(doj1.before(td1))
 			ps1.setString(2,acno);
 			ps1.executeUpdate();
 			
-			ps=con.prepareStatement("insert into inbox values(?,?,?)");
+			ps=con.prepareStatement("insert into inbox(Accno,Message,issued) values(?,?,?)");
 			ps.setString(1, acno);
 			ps.setString(2,message);
 			ps.setString(3,td);
 			ps.executeUpdate();
 			request.setAttribute("message", message);
 			request.getRequestDispatcher("A_viewLoan.jsp").forward(request,response);
-		}else {
+		}else  {
 			String message ="your loan accepted please check your balance";
 			String status="accepted";
 			sql="update loandetails set status=? where Accno=?";
@@ -98,7 +100,7 @@ if(doj1.before(td1))
 			ps2.setString(2,acno);
 			ps2.executeUpdate();
 			
-			ps=con.prepareStatement("insert into inbox values(?,?,?)");
+			ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 			ps.setString(1, acno);
 			ps.setString(2,message);
 			ps.setString(3,td);
@@ -124,7 +126,7 @@ if(doj1.before(td1))
 				ps1.setString(2,acno);
 				ps1.executeUpdate();
 				
-				ps=con.prepareStatement("insert into inbox values(?,?,?)");
+				ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 				ps.setString(1, acno);
 				ps.setString(2,message);
 				ps.setString(3,td);
@@ -133,7 +135,7 @@ if(doj1.before(td1))
 				request.getRequestDispatcher("A_viewLoan.jsp").forward(request,response);
 				
 			}else {
-				String message ="your loan accepted please check your balance";
+				String message =" loan accepted ";
 				
 				String status="accepted";
 				sql="update loandetails set status=? where account=?";
@@ -149,7 +151,7 @@ if(doj1.before(td1))
 				ps2.setString(2,acno);
 				ps2.executeUpdate();
 				
-				ps=con.prepareStatement("insert into inbox values(?,?,?)");
+				ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 				ps.setString(1, acno);
 				ps.setString(2,message);
 				ps.setString(3,td);
@@ -161,7 +163,7 @@ if(doj1.before(td1))
 			x1=12-m;
 			x2=x1+m1;
 			if(x2<6){
-				String message ="your loan rejected due to your relationship with your company should not less than 6 months";
+				String message ="loan rejected due to your relationship with your company should not less than 6 months";
 				
 				String status="rejected";
 				sql="update loandetails set status=? where account=?";
@@ -170,7 +172,7 @@ if(doj1.before(td1))
 				ps1.setString(2,acno);
 				ps1.executeUpdate();
 				
-				ps=con.prepareStatement("insert into inbox values(?,?,?)");
+				ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 				ps.setString(1, acno);
 				ps.setString(2,message);
 				ps.setString(3,td);
@@ -178,7 +180,7 @@ if(doj1.before(td1))
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("A_viewLoan.jsp").forward(request,response);
 			}else {
-				String message ="your loan accepted please check your balance";
+				String message =" loan accepted ";
 				String status="accepted";
 				sql="update loandetails set status=? where account=?";
 				 ps1=con.prepareStatement(sql);
@@ -193,7 +195,7 @@ if(doj1.before(td1))
 				ps2.setString(2,acno);
 				ps2.executeUpdate();
 				
-				ps=con.prepareStatement("insert into inbox values(?,?,?)");
+				ps=con.prepareStatement("insert into inbox (Accno,Message,issued) values(?,?,?)");
 				ps.setString(1, acno);
 				ps.setString(2,message);
 				ps.setString(3,td);

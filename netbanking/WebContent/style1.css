@@ -1,0 +1,58 @@
+@CHARSET "ISO-8859-1";@CHARSET "ISO-8859-1";
+
+            .header{
+               
+                height:120px;
+                width:100%;
+                background-color:#5cb85c;
+           
+            }
+        .menu{
+                height:35px;
+                width:100%;
+                background-color:lightblue;
+                
+            }
+            .content{
+                height:440px;
+                width:100%;
+                background-color:#dceddd;
+             
+	           
+            }
+            .footer{
+                height:40px;
+               width:100%;
+               background-color:#626be5;   
+                
+            }
+            .menu ul li{
+                list-style: none;
+                float:left;
+                border-left:1px solid black;
+            }
+            .menu ul{
+            
+                float:left;
+                margin-top:0px;
+                padding-left:0px;
+            }
+            .menu ul li a{
+                padding:5px 25px 5px 25px;
+                display:block;
+                text-decoration: none;
+                color:white;
+                text-shadow:1px 1px 1px red;
+                font-weight:bold;
+                font-family:monospace;
+                font-size:16px;
+            }
+            .menu ul li a:hover{
+                background-color:red;
+                 text-shadow:1px 1px 1px black;
+                font-weight:bold;
+                font-family:monospace;
+                font-size:16px;
+            }
+            
+        
